@@ -22,14 +22,17 @@
     LetterSpace = 21.0
 ]
 
-\newcommand{\university}[1]{
+\def\eitilogo@pw{Politechnika Warszawska}
+\def\eitilogo@wut{Warsaw University of Technology}
+
+\newcommand{\eitilogo@university}[1]{
     \fontsize{24pt}{32pt}\adagioSlabFont{
         #1
     }
 }
 
 \newcommand{\PolitechnikaWarszawska}{%
-    \university{Politechnika Warszawska}
+    \eitilogo@university{\eitilogo@pw}
 }
 
 \newcommand{\facultyEmblemBasic}{%
@@ -60,8 +63,8 @@
     
     \newcommand{\UczelniaIWydzialNames}{%
         \begin{tabular}{c}
-            \university{Politechnika Warszawska} \\[.25cm]
-            \WydzialSpaced{\widthof{\university{Politechnika Warszawska}}}{Wydział Elektroniki i~Technik~Informacyjnych}
+            \eitilogo@university{Politechnika Warszawska} \\[.25cm]
+            \WydzialSpaced{\widthof{\eitilogo@university{Politechnika Warszawska}}}{Wydział Elektroniki i~Technik~Informacyjnych}
         \end{tabular}
     }
 
