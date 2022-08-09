@@ -1,0 +1,40 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{assert}[2022/03/25 Assert]
+
+% Usage:
+%
+% \assert{Test description}{Expected result}{Result}
+
+% Credit: Daniel Patru (https://tex.stackexchange.com/a/382906)
+
+\RequirePackage{xstring} % IfEq, StrCompare
+\RequirePackage{xcolor}
+
+\def\EnforceAssertions{defined}
+
+\newcounter{tst}
+
+% \assert{test name}{string value1}{string value 2}- will test that
+% the second argument matches the third argument and print in green if
+% it passed or in red if it fails.
+\long\def\assert#1#2#3{{% add a block to prevent namespace pollution
+    % Note that you cannot use the macro on macros with optional
+    % arguments because the macros won't expand properly in an edef.
+    % see https://tex.stackexchange.com/questions/21514/why-isnt-a-command-defined-by-newcommand-with-an-optional-argument-expandable
+    \edef\assertA{#2}\edef\assertB{#3}%
+    \def\name{\if\relax\detokenize{#1}\relax\detokenize{#2} = \detokenize{#3}\else #1\fi}%
+    \def\desc{\space Test:\,\stepcounter{tst}\thetst~(\name)\par}%
+    \comparestrict%
+    \IfEq{\assertA}{\assertB}{%
+      \textcolor{green}{Passed} \desc%
+    }{%
+      \ifcsname EnforceAssertions\endcsname%
+      \errmessage{Assertion \thetst (#1) failed. (#2) $\ne$ (#3)}%
+      \else%
+      \fi%
+      \textcolor{red}{Failed} \desc%
+      \par~~~~~~~~(\assertA)(\detokenize{#2}) $\ne$ \par~~~~~~~~(\assertB)(\detokenize{#3})\par%
+      First difference at position %
+      \comparestrict\StrCompare{\assertA}{\assertB}.\par%
+    }%
+}}

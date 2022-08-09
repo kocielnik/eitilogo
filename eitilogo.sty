@@ -1,0 +1,97 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{eitilogo}[2022/08/08 EITI Logo]
+
+\RequirePackage[defaultsans]{opensans}
+\RequirePackage{graphicx}
+\RequirePackage{calc}
+\RequirePackage{geometry}
+\RequirePackage[hidelinks]{hyperref}
+
+\newfontfamily{\openSansLightFont}[
+    UprightFont={* Light}
+]{Open Sans}
+
+\newfontfamily{\adagioSlabFont}{Adagio Slab}
+[Extension = .otf, UprightFont = *-Regular]
+
+\newfontfamily{\adagioSlabFontExtraSpace}{
+    Adagio Slab
+}[
+    Extension = .otf,
+    UprightFont = *-Regular,
+    LetterSpace = 21.0
+]
+
+\newcommand{\university}[1]{
+    \fontsize{24pt}{32pt}\adagioSlabFont{
+        #1
+    }
+}
+
+\newcommand{\PolitechnikaWarszawska}{%
+    \university{Politechnika Warszawska}
+}
+
+\newcommand{\facultyEmblemBasic}{%
+    \includegraphics[width=345pt]{
+        images/pw.jpg
+    }
+}
+
+{
+    \newcommand{\export}[1]{%
+        \protected@xdef#1{
+            #1
+        }
+    }
+
+    \newcommand{\exportAll}[4]{%
+        \export{#1}
+        \export{#2}
+        \export{#3}
+        \export{#4}
+    }
+
+    \newcommand{\WydzialSpaced}[2]{
+        \parbox{#1}{
+            \centering\fontsize{12pt}{12pt}\adagioSlabFontExtraSpace{\MakeUppercase{#2}}
+        }
+    }
+    
+    \newcommand{\UczelniaIWydzialNames}{%
+        \begin{tabular}{c}
+            \university{Politechnika Warszawska} \\[.25cm]
+            \WydzialSpaced{\widthof{\university{Politechnika Warszawska}}}{Wydział Elektroniki i~Technik~Informacyjnych}
+        \end{tabular}
+    }
+
+    \newcommand{\UczelniaIWydzial}{
+        \begin{tabular}{c c}
+            \UczelniaIWydzialNames & \universityEmblem
+        \end{tabular}
+    }
+    
+    \newcommand{\universityEmblem}{%
+        \begin{minipage}[c]{50pt}
+            \includegraphics[height=50pt]{PW-logo-uroczysty.pdf}
+        \end{minipage}
+    }
+
+    \newcommand{\userFillableForm}{%
+        \begin{Form}
+        \begin{tabular}{l}
+            \TextField[width=4cm,borderstyle=U]{Name:}
+            \CheckBox[width=1em,borderwidth=0]{Check}
+        \end{tabular}
+        \end{Form}
+    }
+    
+    \newcommand{\thesisType}{
+        \includegraphics[width=345pt]{
+            images/front-page-title.jpg
+        }
+    }
+
+    % Make some macros visible in the global scope.
+    \exportAll{\UczelniaIWydzialNames}{\UczelniaIWydzial}{\universityEmblem}{\userFillableForm}
+}

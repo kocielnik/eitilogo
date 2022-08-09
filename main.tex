@@ -1,0 +1,14 @@
+\documentclass{report}
+
+\usepackage[
+    runUnitTests, pagewith, showExamples, withNoIndent
+]{testeitilogo}
+
+\begin{document}
+    \pagewith{\fbox{\UczelniaIWydzial}}
+    \pagewith{
+        \parbox{14cm}{
+            \withNoIndent{\runUnitTests}
+        }
+    }
+\end{document}

@@ -1,0 +1,110 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{testeitilogo}[2022/06/10 Test EITI Logo]
+
+\RequirePackage{pgf}
+\RequirePackage{assert}
+\RequirePackage{eitilogo}
+
+\DeclareOption{pagewith}{
+    \newcommand\pagewith[1]{%
+        % Usage: \pagewith{PageSizeWillMatchThisText}
+        % By David Carlisle,
+        %     https://tex.stackexchange.com/a/299008
+    
+        % Save initial lengths.
+        \newgeometry{margin=0pt, offset=-1in}
+        \newlength\prevpageheight
+        \newlength\prevpagewidth
+    
+        \setlength\prevpageheight\pageheight
+        \setlength\prevpagewidth\pagewidth
+    
+        % \hoffset=-1in
+        % \voffset=-1in
+        \setbox0\hbox{
+            \begin{tabular}{cccc}
+                #1
+            \end{tabular}
+        }
+        \pageheight=\dimexpr\ht0+\dp0\relax
+        \pagewidth=\wd0
+        \shipout\box0
+    
+        % Restore previous lengths
+        \setlength\pageheight\prevpageheight
+        \setlength\pagewidth\prevpagewidth
+    
+        % Clear prev* lengths for future use.
+        \let\prevpageheight\relax
+        \let\prevpagewidth\relax
+        \restoregeometry
+    }
+}
+
+\DeclareOption{withNoIndent}{
+    \newcommand{\withNoIndent}[1]{
+        {
+        \setlength{\parindent}{0pt}
+        #1
+        }
+    }
+}
+
+\DeclareOption{runUnitTests}{
+    \newcommand{\runUnitTests}{%
+        \newcommand*{\getlength}[2]{% Result in `pt`
+            \pgfmathsetmacro##1{round(##2)}%
+        }
+    
+        % Precision resulting from `round` in "getlength".
+        \newcommand{\precision}{%
+            \pm 0.5 pt
+        }
+    
+        \newcommand{\testTotalHeightMatches}[3]{%
+            \settototalheight{\effectiveHeight}{##2}
+            \getlength{\effective}{\effectiveHeight}
+            \assert{Total height of ##3 matches ##1\precision}{##1}{\effective}
+        }
+    
+        \newcommand{\testWidthMatches}[3]{%
+            \setlength\effectiveWidth{\widthof##2}
+            \getlength{\effective}{\the\effectiveWidth}
+            \assert{Width of ##3 matches ##1\precision}{##1}{\effective}
+        }
+    
+        \newlength\effective
+        \newlength\effectiveHeight
+        \newlength\effectiveWidth
+    
+        Unit test results:
+
+        \testWidthMatches{307.0}{\PolitechnikaWarszawska}{PolitechnikaWarszawska}
+        \testTotalHeightMatches{51.0}{\UczelniaIWydzialNames}{UczelniaIWydzialNames}
+        \testTotalHeightMatches{51.0}{\UczelniaIWydzial}{UczelniaIWydzial}
+    }
+}
+
+\DeclareOption{showExamples}{
+    \newcommand{\showExamples}{%
+        \fbox{\UczelniaIWydzial}
+    }
+}
+
+\ProcessOptions\relax
+
+% EXPERIMENTAL
+
+% Usage: \exportmultiple
+%
+% \newcommand{\exportmultiple}{%
+%     \newcount\tmpnum
+%     \def\test ##1{\tmpnum=0 \def\param{##1}\testA{}\end}
+%     \def\testA ##1{\ifx\end##1\relax\else
+%        \advance\tmpnum by 1
+%        \param\the\tmpnum:\ifx^##1^\param \else##1\fi \space
+%        \expandafter\testA \fi
+%     }
+    
+%     \test{}{a}{b}
+% }
