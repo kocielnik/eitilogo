@@ -1,8 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{testeitilogo}[2022/06/10 Test EITI Logo]
+\ProvidesPackage{testeitilogo}[2022/08/09 Test EITI Logo]
 
 \RequirePackage{pgf}
-\RequirePackage{etex}
+\RequirePackage{etex} % locdimen
 \RequirePackage{assert}
 \RequirePackage{eitilogo}
 
@@ -14,30 +14,25 @@
     
         % Save initial lengths.
         \newgeometry{margin=0pt, offset=-1in}
-        \newlength\prevpageheight
-        \newlength\prevpagewidth
+
+        \locdimen\prevpageheight
+        \locdimen\prevpagewidth
     
         \setlength\prevpageheight\pageheight
         \setlength\prevpagewidth\pagewidth
-    
-        % \hoffset=-1in
-        % \voffset=-1in
+
         \setbox0\hbox{
-            \begin{tabular}{cccc}
+            \begin{tabular}{c}
                 #1
             \end{tabular}
         }
         \pageheight=\dimexpr\ht0+\dp0\relax
         \pagewidth=\wd0
         \shipout\box0
-    
-        % Restore previous lengths
+
         \setlength\pageheight\prevpageheight
         \setlength\pagewidth\prevpagewidth
-    
-        % Clear prev* lengths for future use.
-        \let\prevpageheight\relax
-        \let\prevpagewidth\relax
+
         \restoregeometry
     }
 }
