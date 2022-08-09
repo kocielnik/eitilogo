@@ -2,6 +2,7 @@
 \ProvidesPackage{testeitilogo}[2022/06/10 Test EITI Logo]
 
 \RequirePackage{pgf}
+\RequirePackage{etex}
 \RequirePackage{assert}
 \RequirePackage{eitilogo}
 
@@ -73,9 +74,9 @@
             \assert{Width of ##3 matches ##1\precision}{##1}{\effective}
         }
     
-        \newlength\effective
-        \newlength\effectiveHeight
-        \newlength\effectiveWidth
+        \locdimen\effective
+        \locdimen\effectiveHeight
+        \locdimen\effectiveWidth
     
         Unit test results:
 
