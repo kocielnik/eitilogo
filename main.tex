@@ -4,14 +4,6 @@
     runUnitTests, pagewith, showExamples, withNoIndent
 ]{testeitilogo}
 
-\usepackage{xparse}
-
-{
-    \NewDocumentCommand\test{ g }{
-      \IfNoValueTF{#1}{Test}{#1}
-    }
-}
-
 \begin{document}
     \pagewith{\fbox{\UczelniaIWydzial}}
     \pagewith{
@@ -19,5 +11,4 @@
             \withNoIndent{\runUnitTests}
         }
     }
-    % \test
 \end{document}
