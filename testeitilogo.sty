@@ -3,6 +3,7 @@
 
 \RequirePackage{pgf}
 \RequirePackage{etex} % locdimen
+% \RequirePackage{xparse} % NewDocumentCommand
 \RequirePackage{assert}
 \RequirePackage{eitilogo}
 
@@ -76,7 +77,7 @@
         Unit test results:
 
         \testWidthMatches{307.0}{\PolitechnikaWarszawska}{PolitechnikaWarszawska}
-        \testTotalHeightMatches{51.0}{\UczelniaIWydzialNames}{UczelniaIWydzialNames}
+        \testTotalHeightMatches{51.0}{\eitilogo@UczelniaIWydzialColumn{Politechnika Warszawska}{Wydział Elektroniki i~Technik~Informacyjnych}}{UczelniaIWydzialColumn}
         \testTotalHeightMatches{51.0}{\UczelniaIWydzial}{UczelniaIWydzial}
     }
 }

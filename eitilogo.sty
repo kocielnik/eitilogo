@@ -35,66 +35,37 @@
     \eitilogo@university{\eitilogo@pw}
 }
 
-\newcommand{\facultyEmblemBasic}{%
+\newcommand{\eitilogo@facultyEmblemBasic}{%
     \includegraphics[width=345pt]{
         images/pw.jpg
     }
 }
 
-{
-    \newcommand{\export}[1]{%
-        \protected@xdef#1{
-            #1
-        }
-    }
+\newcommand{\eitilogo@universityEmblem}{%
+    \begin{minipage}[c]{50pt}
+        \includegraphics[height=50pt]{PW-logo-uroczysty.pdf}
+    \end{minipage}
+}
 
-    \newcommand{\exportAll}[4]{%
-        \export{#1}
-        \export{#2}
-        \export{#3}
-        \export{#4}
+\newcommand{\eitilogo@WydzialSpaced}[2]{
+    \parbox{#1}{
+        \centering\fontsize{12pt}{12pt}\adagioSlabFontExtraSpace{\MakeUppercase{#2}}
     }
+}
 
-    \newcommand{\WydzialSpaced}[2]{
-        \parbox{#1}{
-            \centering\fontsize{12pt}{12pt}\adagioSlabFontExtraSpace{\MakeUppercase{#2}}
-        }
-    }
-    
-    \newcommand{\UczelniaIWydzialNames}{%
-        \begin{tabular}{c}
-            \eitilogo@university{Politechnika Warszawska} \\[.25cm]
-            \WydzialSpaced{\widthof{\eitilogo@university{Politechnika Warszawska}}}{Wydział Elektroniki i~Technik~Informacyjnych}
-        \end{tabular}
-    }
+\newcommand{\eitilogo@UczelniaIWydzialColumn}[2]{%
+    \begin{tabular}{c}
+        \eitilogo@university{#1} \\[.25cm]
+        \eitilogo@WydzialSpaced{
+            \widthof{\eitilogo@university{#1}}
+        }{#2}
+    \end{tabular}
+}
 
-    \newcommand{\UczelniaIWydzial}{
-        \begin{tabular}{c c}
-            \UczelniaIWydzialNames & \universityEmblem
-        \end{tabular}
-    }
-    
-    \newcommand{\universityEmblem}{%
-        \begin{minipage}[c]{50pt}
-            \includegraphics[height=50pt]{PW-logo-uroczysty.pdf}
-        \end{minipage}
-    }
-
-    \newcommand{\userFillableForm}{%
-        \begin{Form}
-        \begin{tabular}{l}
-            \TextField[width=4cm,borderstyle=U]{Name:}
-            \CheckBox[width=1em,borderwidth=0]{Check}
-        \end{tabular}
-        \end{Form}
-    }
-    
-    \newcommand{\thesisType}{
-        \includegraphics[width=345pt]{
-            images/front-page-title.jpg
-        }
-    }
-
-    % Make some macros visible in the global scope.
-    \exportAll{\UczelniaIWydzialNames}{\UczelniaIWydzial}{\universityEmblem}{\userFillableForm}
+\newcommand{\UczelniaIWydzial}{
+    \begin{tabular}{c c}
+        \eitilogo@UczelniaIWydzialColumn{%
+            Politechnika Warszawska
+        }{Wydział Elektroniki i~Technik~Informacyjnych} & \eitilogo@universityEmblem
+    \end{tabular}
 }
