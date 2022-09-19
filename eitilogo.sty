@@ -63,9 +63,19 @@
 }
 
 \newcommand{\UczelniaIWydzial}{
+    \def\uczelnia{Politechnika Warszawska}
+    \def\wydzial{Wydział Elektroniki i~Technik~Informacyjnych}
     \begin{tabular}{c c}
-        \eitilogo@UczelniaIWydzialColumn{%
-            Politechnika Warszawska
-        }{Wydział Elektroniki i~Technik~Informacyjnych} & \eitilogo@universityEmblem
+        \eitilogo@UczelniaIWydzialColumn{\uczelnia}{\wydzial}
+        & \eitilogo@universityEmblem
+    \end{tabular}
+}
+
+\newcommand{\FacultyHeader}[2][Politechnika Warszawska]{
+    \def\uczelnia{#1}
+    \def\wydzial{#2}
+    \begin{tabular}{c c}
+        \eitilogo@UczelniaIWydzialColumn{\uczelnia}{\wydzial}
+        & \eitilogo@universityEmblem
     \end{tabular}
 }
