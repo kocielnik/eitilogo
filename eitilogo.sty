@@ -5,6 +5,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{calc}
 \RequirePackage{geometry}
+\RequirePackage{keyval,xparse}
 \RequirePackage[hidelinks]{hyperref}
 
 \newfontfamily{\openSansLightFont}[
@@ -62,15 +63,6 @@
     \end{tabular}
 }
 
-\newcommand{\UczelniaIWydzial}{
-    \def\uczelnia{Politechnika Warszawska}
-    \def\wydzial{Wydział Elektroniki i~Technik~Informacyjnych}
-    \begin{tabular}{c c}
-        \eitilogo@UczelniaIWydzialColumn{\uczelnia}{\wydzial}
-        & \eitilogo@universityEmblem
-    \end{tabular}
-}
-
 \newcommand{\FacultyHeader}[2][Politechnika Warszawska]{
     \def\uczelnia{#1}
     \def\wydzial{#2}
@@ -79,3 +71,39 @@
         & \eitilogo@universityEmblem
     \end{tabular}
 }
+
+\newcommand{\UczelniaIWydzial}{%
+    \FacultyHeader[Politechnika Warszawska]{Wydział Elektroniki i~Technik~Informacyjnych}
+}
+
+
+% \makeatletter
+% \define@key{facultyheadertwo}{university}{\def\mm@university{#1}}
+% \define@key{facultyheadertwo}{faculty}{\def\mm@faculty{#1}}
+% \DeclareDocumentCommand{\FacultyHeaderTwo}{m}{%
+%   \begingroup%
+%   % ========= KEY DEFAULTS + new ones =========
+%   \setkeys{facultyheadertwo}{university={Politechnika Warszawska},second={Wydział Elektroniki i~Technik~Informacyjnych},#1}%
+%   First arg: \mm@university \par
+%   Second arg: \mm@faculty \par
+%   \endgroup%
+% }
+% \makeatother
+
+\makeatletter
+% ========= KEY DEFINITIONS =========
+\define@key{facultyheadertwo}{first}{\def\mm@first{#1}}
+\define@key{facultyheadertwo}{second}{\def\mm@second{#1}}
+\define@key{facultyheadertwo}{third}{\def\mm@third{#1}}
+\define@key{facultyheadertwo}{last}{\def\mm@last{#1}}
+\DeclareDocumentCommand{\facultyHeaderTwo}{m}{%
+  \begingroup%
+  % ========= KEY DEFAULTS + new ones =========
+  \setkeys{facultyheadertwo}{first={FIRST arg},second={SECOND arg},third={THIRD arg},last={LAST arg},#1}%
+  First arg: \mm@first \par
+  Second arg: \mm@second \par
+  Third arg: \mm@third \par
+  Last arg: \mm@last
+  \endgroup%
+}
+\makeatother
