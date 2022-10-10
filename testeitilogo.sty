@@ -3,6 +3,10 @@
 
 \RequirePackage{pgf}
 \RequirePackage{elocalloc} % locdimen
+% > If you can limit the code inside a group, then \locskip or \locdimen of package etex can be used instead. They are allocating locally and the registers are freed after the group is closed.
+%
+% -- Heiko Oberdiek, https://tex.stackexchange.com/a/184993
+
 % \RequirePackage{xparse} % NewDocumentCommand
 \RequirePackage{assert}
 \RequirePackage{eitilogo}
