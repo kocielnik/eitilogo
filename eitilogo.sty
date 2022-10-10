@@ -90,20 +90,18 @@
 % }
 % \makeatother
 
+\define@key{twooptionalvalues}{first}[none]{#1}
+\DeclareDocumentCommand{\twoOptionalValues}{o}{\first}
+
 \makeatletter
 % ========= KEY DEFINITIONS =========
-\define@key{facultyheadertwo}{first}{\def\mm@first{#1}}
-\define@key{facultyheadertwo}{second}{\def\mm@second{#1}}
-\define@key{facultyheadertwo}{third}{\def\mm@third{#1}}
-\define@key{facultyheadertwo}{last}{\def\mm@last{#1}}
-\DeclareDocumentCommand{\facultyHeaderTwo}{m}{%
+\define@key{facultyheadertwo}{uczelnia}{\def\mm@uczelnia{#1}}
+\define@key{facultyheadertwo}{wydział}{\def\mm@wydział{#1}}
+\DeclareDocumentCommand{\facultyHeaderTwo}{o}{%
   \begingroup%
   % ========= KEY DEFAULTS + new ones =========
-  \setkeys{facultyheadertwo}{first={FIRST arg},second={SECOND arg},third={THIRD arg},last={LAST arg},#1}%
-  First arg: \mm@first \par
-  Second arg: \mm@second \par
-  Third arg: \mm@third \par
-  Last arg: \mm@last
+  \setkeys{facultyheadertwo}{uczelnia={Domyślna},wydział={Domyślny}}%
+  \mm@uczelnia, \mm@wydział
   \endgroup%
 }
 \makeatother
