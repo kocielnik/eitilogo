@@ -110,19 +110,3 @@
 }
 
 \ProcessOptions\relax
-
-% EXPERIMENTAL
-
-% Usage: \exportmultiple
-%
-% \newcommand{\exportmultiple}{%
-%     \newcount\tmpnum
-%     \def\test ##1{\tmpnum=0 \def\param{##1}\testA{}\end}
-%     \def\testA ##1{\ifx\end##1\relax\else
-%        \advance\tmpnum by 1
-%        \param\the\tmpnum:\ifx^##1^\param \else##1\fi \space
-%        \expandafter\testA \fi
-%     }
-    
-%     \test{}{a}{b}
-% }
