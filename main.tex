@@ -1,25 +1,23 @@
 \documentclass{report}
 
 \usepackage[
-    runUnitTests, pagewith, showExamples, withNoIndent
+    runUnitTests, preview, showExamples, withNoIndent
 ]{testeitilogo}
 
 \begin{document}
     % Header with custom university and faculty
-    \pagewith{
-        \fbox{
-            \universityAndFaculty[
-                university=Warsaw University of Technology,
-                faculty=Faculty of Electronics and~Information~Technology
-            ]
-        }
+    \preview{
+        \universityAndFaculty[
+            university=Warsaw University of Technology,
+            faculty=Faculty of Electronics and~Information~Technology
+        ]
     }
     % Header with custom faculty
-    \pagewith{\fbox{\universityAndFaculty[faculty=Wydział Elektryczny]}}
+    \preview{\universityAndFaculty[faculty=Wydział Elektryczny]}
     % Header with default arguments
-    \pagewith{\fbox{\universityAndFaculty}}
+    \preview{\universityAndFaculty}
 
-    \pagewith{
+    \preview{
         \parbox{14cm}{
             \withNoIndent{\runUnitTests}
         }

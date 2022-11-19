@@ -2,48 +2,32 @@
 \ProvidesPackage{testeitilogo}[2022/08/09 Test EITI Logo]
 
 \RequirePackage{pgf}
-\RequirePackage{elocalloc} % locdimen
+
 % > If you can limit the code inside a group, then \locskip or \locdimen of package etex can be used instead. They are allocating locally and the registers are freed after the group is closed.
 %
 % -- Heiko Oberdiek, https://tex.stackexchange.com/a/184993
+\RequirePackage{elocalloc} % locdimen
 
-% \RequirePackage{xparse} % NewDocumentCommand
+\RequirePackage{xparse} % NewDocumentCommand
 \RequirePackage{assert}
 \RequirePackage{eitilogo}
 
-\DeclareOption{pagewith}{
-    \newcommand\pagewith[1]{%
-        % Usage: \pagewith{PageSizeWillMatchThisText}
-        % By David Carlisle,
-        %     https://tex.stackexchange.com/a/299008
-    
-        % Save initial lengths.
-        \newgeometry{margin=0pt, offset=-1in}
-
-        \locdimen\prevpageheight
-        \locdimen\prevpagewidth
-    
-        \setlength\prevpageheight\pageheight
-        \setlength\prevpagewidth\pagewidth
-
-        \setbox0\hbox{
-            \begin{tabular}{c}
-                #1
-            \end{tabular}
+\DeclareOption{preview}{
+    \NewDocumentCommand\preview{m}{
+        \pagewith{
+            \fbox{#1}
         }
-        \pageheight=\dimexpr\ht0+\dp0\relax
-        \pagewidth=\wd0
-        \shipout\box0
+    }
+}
 
-        \setlength\pageheight\prevpageheight
-        \setlength\pagewidth\prevpagewidth
-
-        \restoregeometry
+\DeclareOption{showExamples}{
+    \NewDocumentCommand{\showExamples}{}{%
+        \fbox{\UczelniaIWydzial}
     }
 }
 
 \DeclareOption{withNoIndent}{
-    \newcommand{\withNoIndent}[1]{
+    \NewDocumentCommand{\withNoIndent}{m}{
         {
         \setlength{\parindent}{0pt}
         #1
@@ -103,10 +87,33 @@
     }
 }
 
-\DeclareOption{showExamples}{
-    \newcommand{\showExamples}{%
-        \fbox{\UczelniaIWydzial}
+\newcommand\pagewith[1]{%
+    % Usage: \pagewith{PageSizeWillMatchThisText}
+    % By David Carlisle,
+    %     https://tex.stackexchange.com/a/299008
+
+    % Save initial lengths.
+    \newgeometry{margin=0pt, offset=-1in}
+
+    \locdimen\prevpageheight
+    \locdimen\prevpagewidth
+
+    \setlength\prevpageheight\pageheight
+    \setlength\prevpagewidth\pagewidth
+
+    \setbox0\hbox{
+        \begin{tabular}{c}
+            #1
+        \end{tabular}
     }
+    \pageheight=\dimexpr\ht0+\dp0\relax
+    \pagewidth=\wd0
+    \shipout\box0
+
+    \setlength\pageheight\prevpageheight
+    \setlength\pagewidth\prevpagewidth
+
+    \restoregeometry
 }
 
 \ProcessOptions\relax
