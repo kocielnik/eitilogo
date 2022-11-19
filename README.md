@@ -1,6 +1,6 @@
 ### Preview
 
-![](preview.jpg)
+![](preview.png)
 
 ### Requirements
 
