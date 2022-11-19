@@ -72,86 +72,18 @@
     \end{tabular}
 }
 
-\newcommand{\UczelniaIWydzial}{%
-    \FacultyHeader[Politechnika Warszawska]{Wydział Elektroniki i~Technik~Informacyjnych}
-}
-
-
-% \makeatletter
-% \define@key{facultyheadertwo}{university}{\def\mm@university{#1}}
-% \define@key{facultyheadertwo}{faculty}{\def\mm@faculty{#1}}
-% \DeclareDocumentCommand{\FacultyHeaderTwo}{m}{%
-%   \begingroup%
-%   % ========= KEY DEFAULTS + new ones =========
-%   \setkeys{facultyheadertwo}{university={Politechnika Warszawska},second={Wydział Elektroniki i~Technik~Informacyjnych},#1}%
-%   First arg: \mm@university \par
-%   Second arg: \mm@faculty \par
-%   \endgroup%
-% }
-% \makeatother
-
 \def\defaultUniversity{Politechnika Warszawska}
 \def\defaultFaculty{Wydział Elektroniki i~Technik~Informacyjnych}
 
+% Usage and credit: https://tex.stackexchange.com/a/34314
 \makeatletter
 % ========= KEY DEFINITIONS =========
-\define@key{facultyheadertwo}{uczelnia}{\def\mm@uczelnia{#1}}
-\define@key{facultyheadertwo}{wydział}{\def\mm@wydział{#1}}
-\DeclareDocumentCommand{\facultyHeaderTwo}{o}{%
-  \begingroup%
-  % ========= KEY DEFAULTS + new ones =========
-  \setkeys{facultyheadertwo}{uczelnia={\defaultUniversity},wydział={\defaultFaculty}}%
-  \FacultyHeader[\mm@uczelnia]{\mm@wydział}
-  \endgroup%
-}
-\makeatother
-
-\makeatletter
-\define@key{universityAndFaculty}{university}{\def\uaf@university{#1}}
-\define@key{universityAndFaculty}{faculty}{\def\uaf@faculty{#1}}
-\setkeys{universityAndFaculty}{university={\defaultUniversity}, faculty={\defaultFaculty}}%
-\newcommand{\universityAndFaculty}[2]{
-    \setkeys{universityAndFaculty}{#1}
-    \uaf@university, \uaf@faculty
-}
-\makeatother
-
-% Usage: https://tex.stackexchange.com/a/34314
-\makeatletter
-% ========= KEY DEFINITIONS =========
-\newlength{\spb@width}
-\define@key{mysuperparbox}{fontcolor}{\def\spb@fontcolor{#1}}
-\define@key{mysuperparbox}{color}{\def\spb@color{#1}}
-\define@key{mysuperparbox}{width}{\setlength\spb@width{#1}}
-\define@key{mysuperparbox}{align}{\def\spb@align{#1}}
+\define@key{universityandfaculty}{university}{\def\uf@university{#1}}
+\define@key{universityandfaculty}{faculty}{\def\uf@faculty{#1}}
 % ========= KEY DEFAULTS =========
-\setkeys{mysuperparbox}{fontcolor=black,color=white,width=5cm,align=t}%
-\newcommand{\mysuperparbox}[2][]{%
-  \begingroup%
-  \setkeys{mysuperparbox}{#1}% Set new keys
-  \colorbox{\spb@color}{\parbox[\spb@align]{\spb@width}{%
-    \color{\spb@fontcolor}#2
-  }}%
-  \endgroup%
-}
-\makeatother
-
-% Usage: https://tex.stackexchange.com/a/34314
-\makeatletter
-% ========= KEY DEFINITIONS =========
-\newlength{\pb@width}
-\define@key{myparbox}{fontcolor}{\def\pb@fontcolor{#1}}
-\define@key{myparbox}{color}{\def\pb@color{#1}}
-\define@key{myparbox}{width}{\setlength\pb@width{#1}}
-\define@key{myparbox}{align}{\def\pb@align{#1}}
-% ========= KEY DEFAULTS =========
-\setkeys{myparbox}{fontcolor=black,color=white,width=5cm,align=t}%
-\newcommand{\myparbox}[2][]{%
-  \begingroup%
-  \setkeys{myparbox}{#1}% Set new keys
-  \colorbox{\pb@color}{\parbox[\pb@align]{\pb@width}{%
-    \color{\pb@fontcolor}#2
-  }}%
-  \endgroup%
+\setkeys{universityandfaculty}{university=\defaultUniversity,faculty=\defaultFaculty}%
+\newcommand{\universityAndFaculty}[1][]{%
+  \setkeys{universityandfaculty}{#1}% Set new keys
+  \FacultyHeader[\uf@university]{\uf@faculty}
 }
 \makeatother

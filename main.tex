@@ -6,42 +6,21 @@
 
 \begin{document}
     % Header with default arguments
-    \pagewith{\fbox{\facultyHeaderTwo}}
-    % Header with custom university
-    \pagewith{\fbox{\facultyHeaderTwo{uczelnia={Warsaw University of Technology}}}}
-    \pagewith{\fbox{\FacultyHeader[Warsaw University of Technology]{Faculty of Electronics and~Information~Technology}}}
-    \pagewith{\fbox{\FacultyHeader{Wydział Elektryczny}}}
-    \pagewith{\fbox{\UczelniaIWydzial}}
+    \pagewith{\fbox{\universityAndFaculty}}
+    % Header with custom faculty
+    \pagewith{\fbox{\universityAndFaculty[faculty=Wydział Elektryczny]}}
+    % Header with custom university and faculty
+    \pagewith{
+        \fbox{
+            \universityAndFaculty[
+                university=Warsaw University of Technology,
+                faculty=Faculty of Electronics and~Information~Technology
+            ]
+        }
+    }
     \pagewith{
         \parbox{14cm}{
             \withNoIndent{\runUnitTests}
-        }
-    }
-    \pagewith{
-        \mysuperparbox{%
-            Here is some text that should fit in this paragraph box.
-            Here is some text that should fit in this paragraph box.
-            Here is some text that should fit in this paragraph box.
-            Here is some text that should fit in this paragraph box.
-            Here is some text that should fit in this paragraph box.
-        }
-    }
-    \pagewith{
-        \myparbox{%
-            Here is some text that should fit in this paragraph box.
-            Here is some text that should fit in this paragraph box.
-            Here is some text that should fit in this paragraph box.
-            Here is some text that should fit in this paragraph box.
-            Here is some text that should fit in this paragraph box.
-        }
-    }
-    \pagewith{
-        \myparbox[width=10cm]{%
-          Here is some text that should fit in this paragraph box.
-          Here is some text that should fit in this paragraph box.
-          Here is some text that should fit in this paragraph box.
-          Here is some text that should fit in this paragraph box.
-          Here is some text that should fit in this paragraph box.
         }
     }
 \end{document}

@@ -82,16 +82,24 @@
 
         \testWidthMatches{307.0}{\PolitechnikaWarszawska}{PolitechnikaWarszawska}
         
-        \testTotalHeightMatches{51.0}{\eitilogo@UczelniaIWydzialColumn{Politechnika Warszawska}{Wydział Elektroniki i~Technik~Informacyjnych}}{UczelniaIWydzialColumn}
+        \testTotalHeightMatches{51.0}{
+            \eitilogo@UczelniaIWydzialColumn{Politechnika Warszawska}{Wydział Elektroniki i~Technik~Informacyjnych}
+        }{UczelniaIWydzialColumn}
         
-        \testTotalHeightMatches{51.0}{\UczelniaIWydzial}{UczelniaIWydzial}
-        
-        \testTotalHeightMatches{51.0}{\FacultyHeader{Wydział Elektroniki i~Technik~Informacyjnych}}{FacultyHeader with faculty set}
+        \testTotalHeightMatches{51.0}{\FacultyHeader[Politechnika Warszawska]{Wydział Elektroniki i~Technik~Informacyjnych}}{FacultyHeader}
+
+        \testTotalHeightMatches{51.0}{\universityAndFaculty}{universityAndFaculty}
         
         \testTotalHeightMatches{50.0}{
-            \FacultyHeader[Warsaw University of Technology]
-                {Faculty of Electronics and~Information~Technology}
-        }{FacultyHeader with custom faculty and university set}
+            \universityAndFaculty[faculty=Wydział Elektryczny]
+        }{universityAndFaculty with custom faculty set}
+        
+        \testTotalHeightMatches{50.0}{
+            \universityAndFaculty[
+                faculty=Faculty of Electronics and~Information~Technology,
+                university=Warsaw University of Technology
+            ]
+        }{universityAndFaculty with custom university and faculty set}
     }
 }
 
