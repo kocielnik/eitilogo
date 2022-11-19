@@ -42,9 +42,11 @@
     }
 }
 
-\newcommand{\eitilogo@universityEmblem}{%
+\newcommand{\eitilogo@universityEmblem}[1]{%
     \begin{minipage}[c]{50pt}
-        \includegraphics[height=50pt]{PW-logo-uroczysty.pdf}
+        \begin{center}
+            \includegraphics[height=50pt]{#1}
+        \end{center}
     \end{minipage}
 }
 
@@ -68,7 +70,7 @@
     \def\wydzial{#2}
     \begin{tabular}{c c}
         \eitilogo@UczelniaIWydzialColumn{\uczelnia}{\wydzial}
-        & \eitilogo@universityEmblem
+        & \eitilogo@universityEmblem{PW-logo-uroczysty.pdf}
     \end{tabular}
 }
 
@@ -80,10 +82,14 @@
 % ========= KEY DEFINITIONS =========
 \define@key{universityandfaculty}{university}{\def\uf@university{#1}}
 \define@key{universityandfaculty}{faculty}{\def\uf@faculty{#1}}
+\define@key{universityandfaculty}{logo}{\def\uf@logo{#1}}
 % ========= KEY DEFAULTS =========
-\setkeys{universityandfaculty}{university=\defaultUniversity,faculty=\defaultFaculty}%
+\setkeys{universityandfaculty}{university=\defaultUniversity,faculty=\defaultFaculty,logo=PW-logo-uroczysty.pdf}%
 \newcommand{\universityAndFaculty}[1][]{%
   \setkeys{universityandfaculty}{#1}% Set new keys
-  \FacultyHeader[\uf@university]{\uf@faculty}
+  \begin{tabular}{c c}
+        \eitilogo@UczelniaIWydzialColumn{\uf@university}{\uf@faculty}
+        & \eitilogo@universityEmblem{\uf@logo}
+  \end{tabular}
 }
 \makeatother
