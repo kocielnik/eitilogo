@@ -8,19 +8,26 @@
 \RequirePackage{xkeyval,xparse}
 \RequirePackage[hidelinks]{hyperref}
 
+% The trailing slash is mandatory.
+\def\fontPath{assets/}
+
 \newfontfamily{\openSansLightFont}[
     UprightFont={* Light}
 ]{Open Sans}
 
-\newfontfamily{\adagioSlabFont}{Adagio Slab}
-[Extension = .otf, UprightFont = *-Regular]
+\newfontfamily{\adagioSlabFont}{Adagio Slab}[
+    Extension = .otf,
+    UprightFont = *-Regular,
+    Path = \fontPath
+]
 
 \newfontfamily{\adagioSlabFontExtraSpace}{
     Adagio Slab
 }[
     Extension = .otf,
     UprightFont = *-Regular,
-    LetterSpace = 21.0
+    LetterSpace = 21.0,
+    Path = \fontPath
 ]
 
 \def\eitilogo@pw{Politechnika Warszawska}
@@ -70,7 +77,7 @@
     \def\wydzial{#2}
     \begin{tabular}{c c}
         \eitilogo@UczelniaIWydzialColumn{\uczelnia}{\wydzial}
-        & \eitilogo@universityEmblem{PW-logo-uroczysty.pdf}
+        & \eitilogo@universityEmblem{assets/PW-logo-uroczysty.pdf}
     \end{tabular}
 }
 
@@ -84,7 +91,7 @@
 \define@key{universityandfaculty}{faculty}{\def\uf@faculty{#1}}
 \define@key{universityandfaculty}{logo}{\def\uf@logo{#1}}
 % ========= KEY DEFAULTS =========
-\setkeys{universityandfaculty}{university=\defaultUniversity,faculty=\defaultFaculty,logo=PW-logo-uroczysty.pdf}%
+\setkeys{universityandfaculty}{university=\defaultUniversity,faculty=\defaultFaculty,logo=assets/PW-logo-uroczysty.pdf}%
 \newcommand{\universityAndFaculty}[1][]{%
   \setkeys{universityandfaculty}{#1}% Set new keys
   \begin{tabular}{c c}
