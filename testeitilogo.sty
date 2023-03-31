@@ -87,6 +87,47 @@
     }
 }
 
+\DeclareOption{runSpecializedTests}{
+    \newcommand{\runSpecializedTests}{%
+        \newcommand*{\getlength}[2]{% Result in `pt`
+            \pgfmathsetmacro##1{round(##2)}%
+        }
+    
+        % Precision resulting from `round` in "getlength".
+        \newcommand{\precision}{%
+            \pm 0.5 pt
+        }
+    
+        \newcommand{\testTotalHeightMatches}[2]{%
+            \settototalheight{\effectiveHeight}{##2}
+            \getlength{\effective}{\effectiveHeight}
+            \assert{Total height matches ##1\precision}{##1}{\effective}
+        }
+
+        \newcommand{\testWidthMatches}[2]{%
+            \setlength\effectiveWidth{\widthof##2}
+            \getlength{\effective}{\the\effectiveWidth}
+            \assert{Width matches ##1\precision}{##1}{\effective}
+        }
+
+        \locdimen\effective
+        \locdimen\effectiveHeight
+        \locdimen\effectiveWidth
+
+        \def\macroUnderTest{
+            \universityAndFaculty[
+                faculty=Faculty of Electronics and~Information~Technology,
+                university=Warsaw University of Technology
+            ]
+        }
+
+        Unit test results:
+
+        \testTotalHeightMatches{50.0}{\macroUnderTest}
+        \testWidthMatches{500.0}{\macroUnderTest}
+    }
+}
+
 \newcommand\pagewith[1]{%
     % Usage: \pagewith{PageSizeWillMatchThisText}
     % By David Carlisle,

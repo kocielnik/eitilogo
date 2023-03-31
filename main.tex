@@ -1,7 +1,7 @@
 \documentclass{report}
 
 \usepackage[
-    runUnitTests, preview, showExamples, withNoIndent
+    runUnitTests, runSpecializedTests, preview, showExamples, withNoIndent
 ]{testeitilogo}
 
 \begin{document}
@@ -11,6 +11,11 @@
             university=Warsaw University of Technology,
             faculty=Faculty of Electronics and~Information~Technology
         ]
+    }
+    \preview{
+        \parbox{14cm}{
+            \withNoIndent{\runSpecializedTests}
+        }
     }
     % Header with custom faculty
     \preview{\universityAndFaculty[faculty=Wydział Elektryczny]}
