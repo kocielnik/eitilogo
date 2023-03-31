@@ -35,60 +35,8 @@
     }
 }
 
-\DeclareOption{runUnitTests}{
-    \newcommand{\runUnitTests}{%
-        \newcommand*{\getlength}[2]{% Result in `pt`
-            \pgfmathsetmacro##1{round(##2)}%
-        }
-    
-        % Precision resulting from `round` in "getlength".
-        \newcommand{\precision}{%
-            \pm 0.5 pt
-        }
-    
-        \newcommand{\testTotalHeightMatches}[3]{%
-            \settototalheight{\effectiveHeight}{##2}
-            \getlength{\effective}{\effectiveHeight}
-            \assert{Total height of ##3 matches ##1\precision}{##1}{\effective}
-        }
-
-        \newcommand{\testWidthMatches}[3]{%
-            \setlength\effectiveWidth{\widthof##2}
-            \getlength{\effective}{\the\effectiveWidth}
-            \assert{Width of ##3 matches ##1\precision}{##1}{\effective}
-        }
-
-        \locdimen\effective
-        \locdimen\effectiveHeight
-        \locdimen\effectiveWidth
-
-        Unit test results:
-
-        \testWidthMatches{307.0}{\PolitechnikaWarszawska}{PolitechnikaWarszawska}
-
-        \testTotalHeightMatches{51.0}{
-            \eitilogo@UczelniaIWydzialColumn{Politechnika Warszawska}{Wydział Elektroniki i~Technik~Informacyjnych}
-        }{UczelniaIWydzialColumn}
-
-        \testTotalHeightMatches{51.0}{\FacultyHeader[Politechnika Warszawska]{Wydział Elektroniki i~Technik~Informacyjnych}}{FacultyHeader}
-
-        \testTotalHeightMatches{51.0}{\universityAndFaculty}{universityAndFaculty}
-        
-        \testTotalHeightMatches{50.0}{
-            \universityAndFaculty[faculty=Wydział Elektryczny]
-        }{universityAndFaculty with custom faculty set}
-        
-        \testTotalHeightMatches{50.0}{
-            \universityAndFaculty[
-                faculty=Faculty of Electronics and~Information~Technology,
-                university=Warsaw University of Technology
-            ]
-        }{universityAndFaculty with custom university and faculty set}
-    }
-}
-
-\DeclareOption{runSpecializedTests}{
-    \newcommand{\runSpecializedTests}{%
+\DeclareOption{testWidthHeight}{
+    \newcommand{\testWidthHeight}[3]{%
         \newcommand*{\getlength}[2]{% Result in `pt`
             \pgfmathsetmacro##1{round(##2)}%
         }
@@ -114,17 +62,14 @@
         \locdimen\effectiveHeight
         \locdimen\effectiveWidth
 
-        \def\macroUnderTest{
-            \universityAndFaculty[
-                faculty=Faculty of Electronics and~Information~Technology,
-                university=Warsaw University of Technology
-            ]
-        }
+        \def\macroUnderTest{#1}
+        \def\desiredHeight{#2}
+        \def\desiredWidth{#3}
 
         Unit test results:
 
-        \testTotalHeightMatches{50.0}{\macroUnderTest}
-        \testWidthMatches{500.0}{\macroUnderTest}
+        \testTotalHeightMatches{\desiredHeight}{\macroUnderTest}
+        \testWidthMatches{\desiredWidth}{\macroUnderTest}
     }
 }
 

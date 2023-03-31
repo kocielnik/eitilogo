@@ -1,32 +1,38 @@
 \documentclass{report}
 
-\usepackage[
-    runUnitTests, runSpecializedTests, preview, showExamples, withNoIndent
-]{testeitilogo}
+\usepackage[testWidthHeight, preview, showExamples, withNoIndent]{testeitilogo}
 
 \begin{document}
     % Header with custom university and faculty
-    \preview{
+    \def\logoEnglish{
         \universityAndFaculty[
             university=Warsaw University of Technology,
             faculty=Faculty of Electronics and~Information~Technology
         ]
     }
+    \preview{\logoEnglish}
     \preview{
         \parbox{14cm}{
-            \withNoIndent{\runSpecializedTests}
+            \withNoIndent{\testWidthHeight{\logoEnglish}{50.0}{500.0}}
         }
     }
     % Header with custom faculty
-    \preview{\universityAndFaculty[faculty=Wydział Elektryczny]}
+    \def\logoElektryczny{\universityAndFaculty[faculty=Wydział Elektryczny]}
+    \preview{\logoElektryczny}
+    \preview{
+        \parbox{14cm}{
+            \testWidthHeight{\logoElektryczny}{50.0}{401.0}
+        }
+    }
     % Header with default arguments
     \preview{\universityAndFaculty}
     % Header with custom logo
     \preview{\universityAndFaculty[logo=assets/wut-symbol.pdf]}
-
     \preview{
         \parbox{14cm}{
-            \withNoIndent{\runUnitTests}
+            \testWidthHeight{%
+                \universityAndFaculty[logo=assets/wut-symbol.pdf]
+            }{51.0}{404.0}
         }
     }
 \end{document}
