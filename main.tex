@@ -1,5 +1,6 @@
 \documentclass{report}
 
+\usepackage{listings}
 \usepackage[testWidthHeight, preview, showExamples, withNoIndent]{testeitilogo}
 
 \begin{document}
@@ -35,4 +36,26 @@
             }{51.0}{404.0}
         }
     }
+
+\chapter{Example calls}
+\setlength{\parindent}{0pt}
+
+Version 1 - first frame above:
+
+\begin{lstlisting}[language=TeX]
+\usepackage{eitilogo}
+
+\universityAndFaculty[
+    university=Warsaw University of Technology,
+    faculty=Faculty of Electronics and~Information~Technology
+]
+\end{lstlisting}
+
+Version 2 - second frame above:
+
+\begin{lstlisting}[language=TeX]
+\usepackage{eitilogo}
+
+\universityAndFaculty[faculty=Wydział Elektryczny]
+\end{lstlisting}
 \end{document}
