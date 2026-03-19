@@ -1,0 +1,13 @@
+\input{/usr/share/texlive/texmf-dist/tex/latex/l3build/regression-test}
+\documentclass{article}
+\usepackage{bookmark}
+\RequirePackage{fix-cm}
+\usepackage{eitilogo} % The package to test
+\showoutput
+\begin{document}
+\START
+% Assume the commands produce typeset output
+\PolitechnikaWarszawska%
+\newpage
+\OMIT
+\end{document}
