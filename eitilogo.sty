@@ -10,7 +10,9 @@
 \RequirePackage{hyperref}
 
 % The trailing slash is mandatory.
-\DeclareStringOption[assets/]{fontPath}
+\DeclareStringOption[./]{extraFontPath}
+
+\ProcessKeyvalOptions{eitilogo}\relax
 
 \newfontfamily{\openSansLightFont}[
     UprightFont={* Light}
@@ -19,7 +21,7 @@
 \newfontfamily{\adagioSlabFont}{AdagioSlab}[
     Extension = .otf,
     UprightFont = *-Regular,
-    Path = \eitilogo@fontPath
+    Path = \eitilogo@extraFontPath
 ]
 
 \newfontfamily{\adagioSlabFontExtraSpace}{
@@ -28,7 +30,7 @@
     Extension = .otf,
     UprightFont = *-Regular,
     LetterSpace = 21.0,
-    Path = \eitilogo@fontPath
+    Path = \eitilogo@extraFontPath
 ]
 
 \def\eitilogo@pw{Politechnika Warszawska}
