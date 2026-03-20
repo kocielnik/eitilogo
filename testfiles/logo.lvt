@@ -1,13 +1,15 @@
-\input{/usr/share/texlive/texmf-dist/tex/latex/l3build/regression-test}
+\input{regression-test}
 \documentclass{article}
 \usepackage{bookmark}
-\RequirePackage{fix-cm}
+
 \usepackage{eitilogo} % The package to test
+
 \showoutput
 \begin{document}
+
 \START
 % Assume the commands produce typeset output
-\PolitechnikaWarszawska%
-\newpage
+\universityAndFaculty[logo=wut-symbol.pdf]
 \OMIT
+
 \end{document}

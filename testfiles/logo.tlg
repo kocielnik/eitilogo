@@ -1,118 +1,13 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
-! Font \TU/AdagioSlab(0)/m/n/24=[assets/AdagioSlab-Regular.otf]:mode=node;langua
-ge=dflt; at 24pt not loadable: metric data not found or bad.
-<to be read again> 
-relax 
-l. ...\PolitechnikaWarszawska
-                          %
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-Completed box being shipped out [1]
-\vbox(609.60394+0.0)x449.87982, direction TLT
-.\hbox(0.0+0.0)x0.0, direction TLT
-.\hbox(0.0+0.0)x0.0, direction TLT
-..\kern-72.26999
-..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
-...\kern-72.26999
-...\hbox(0.0+0.0)x0.0, direction TLT
-....\glue 0.0 plus 1.0fil minus 1.0fil
-...\glue 0.0 plus 1.0fil minus 1.0fil
-.\vbox(0.0+0.0)x0.0, glue set 14.87636fil, direction TLT
-..\kern0.0
-..\kern-13.87262
-..\kern-1.00374
-..\hbox(0.0+0.0)x0.0, glue set - 18.87146fil, direction TLT
-...\kern0.0
-...\kern19.8752
-...\kern-1.00374
-...\pdfdest name{page.1} xyz
-...\penalty 10000
-...\glue 0.0 plus 1.0fil minus 1.0fil
-..\glue 0.0 plus 1.0fil minus 1.0fil
-.\glue(\lineskip) 0.0
-.\vbox(609.60394+0.0)x449.87982, direction TLT
-..\glue -13.87262
-..\vbox(623.47656+0.0)x430.00462, shifted 19.8752, direction TLT
-...\vbox(12.0+0.0)x430.00462, glue set 12.0fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\hbox(0.0+0.0)x430.00462, direction TLT
-.....\hbox(0.0+0.0)x430.00462, direction TLT
-...\glue 25.0
-...\glue(\lineskip) 0.0
-...\vbox(556.47656+0.0)x430.00462, glue set 546.41821fil, direction TLT
-....\write-{}
-....\pdfdest name{Doc-Start} xyz
-....\glue(\topskip) 10.0
-....\hbox(0.0+0.0)x430.00462, glue set 415.00464fil, direction TLT
-.....\localpar
-......\localinterlinepenalty=0
-......\localbrokenpenalty=0
-......\localleftbox=null
-......\localrightbox=null
-.....\hbox(0.0+0.0)x15.0, direction TLT
-.....\TU/AdagioSlab(0)/m/n/24 P
-.....\TU/AdagioSlab(0)/m/n/24 o
-.....\TU/AdagioSlab(0)/m/n/24 l
-.....\TU/AdagioSlab(0)/m/n/24 i
-.....\TU/AdagioSlab(0)/m/n/24 t
-.....\TU/AdagioSlab(0)/m/n/24 e
-.....\TU/AdagioSlab(0)/m/n/24 c
-.....\TU/AdagioSlab(0)/m/n/24 h
-.....\TU/AdagioSlab(0)/m/n/24 n
-.....\TU/AdagioSlab(0)/m/n/24 i
-.....\TU/AdagioSlab(0)/m/n/24 k
-.....\TU/AdagioSlab(0)/m/n/24 a
-.....\glue(\spaceskip) 0.0
-.....\TU/AdagioSlab(0)/m/n/24 W
-.....\TU/AdagioSlab(0)/m/n/24 a
-.....\TU/AdagioSlab(0)/m/n/24 r
-.....\TU/AdagioSlab(0)/m/n/24 s
-.....\TU/AdagioSlab(0)/m/n/24 z
-.....\TU/AdagioSlab(0)/m/n/24 a
-.....\TU/AdagioSlab(0)/m/n/24 w
-.....\TU/AdagioSlab(0)/m/n/24 s
-.....\TU/AdagioSlab(0)/m/n/24 k
-.....\TU/AdagioSlab(0)/m/n/24 a
-.....\glue(\spaceskip) 0.0
-.....\glue(\spaceskip) 0.0
-.....\kern0.0
-.....\penalty 10000
-.....\glue(\parfillskip) 0.0 plus 1.0fil
-.....\glue(\rightskip) 0.0
-....\glue 0.0 plus 1.0fil
-....\glue 0.0
-....\glue 0.0 plus 0.0001fil
-...\glue(\baselineskip) 23.34
-...\hbox(6.66+0.0)x430.00462, direction TLT
-....\hbox(6.66+0.0)x430.00462, glue set 212.50232fil, direction TLT
-.....\glue 0.0 plus 1.0fil
-.....\TU/lmr/m/n/10 1
-.....\glue 0.0 plus 1.0fil
-.\kern0.0
-.\kern0.0
-Missing character: There is no P (U+0050) in font nullfont!
-Missing character: There is no o (U+006F) in font nullfont!
-Missing character: There is no l (U+006C) in font nullfont!
-Missing character: There is no i (U+0069) in font nullfont!
-Missing character: There is no t (U+0074) in font nullfont!
-Missing character: There is no e (U+0065) in font nullfont!
-Missing character: There is no c (U+0063) in font nullfont!
-Missing character: There is no h (U+0068) in font nullfont!
-Missing character: There is no n (U+006E) in font nullfont!
-Missing character: There is no i (U+0069) in font nullfont!
-Missing character: There is no k (U+006B) in font nullfont!
-Missing character: There is no a (U+0061) in font nullfont!
-Missing character: There is no W (U+0057) in font nullfont!
-Missing character: There is no a (U+0061) in font nullfont!
-Missing character: There is no r (U+0072) in font nullfont!
-Missing character: There is no s (U+0073) in font nullfont!
-Missing character: There is no z (U+007A) in font nullfont!
-Missing character: There is no a (U+0061) in font nullfont!
-Missing character: There is no w (U+0077) in font nullfont!
-Missing character: There is no s (U+0073) in font nullfont!
-Missing character: There is no k (U+006B) in font nullfont!
-Missing character: There is no a (U+0061) in font nullfont!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+Inserting `luaotfload.letterspace' in `pre_linebreak_filter'.
+Inserting `luaotfload.letterspace' in `hpack_filter'.
+<wut-symbol.pdf, id=3, 252.79369pt x 841.16725pt>
+File: wut-symbol.pdf Graphic file (type pdf)
+<use wut-symbol.pdf>
+Package luatex.def Info: wut-symbol.pdf  used on input line ....
+(luatex.def)             Requested size: 15.02423pt x 50.0pt.
